@@ -1,6 +1,5 @@
 streamlit
 phe
-sqlite3
 datatime
 cherrypy
 threading
