@@ -149,7 +149,18 @@ class Tool:
         enc_res = [paillier.EncryptedNumber(self.public_key, x.ciphertext(), 0) for x in res]
         dec_res = [self.private_key.decrypt(x) for x in enc_res]
 
-        res = {
+        _enc_res = {
+            "neg_GPT_diff": res[0].ciphertext(),
+            "GOT_diff_with_normal": res[1].ciphertext(),
+            "GOT_diff_with_upper": res[2].ciphertext(),
+            "neg_GOT_diff": res[3].ciphertext(),
+            "GPT_diff_with_normal": res[4].ciphertext(),
+            "GPT_diff_with_upper": res[5].ciphertext(),
+            "GOT_exceed": res[6].ciphertext(),
+            "GPT_exceed": res[7].ciphertext(),
+        }
+
+        _dec_res = {
             "neg_GPT_diff": dec_res[0],
             "GOT_diff_with_normal": dec_res[1],
             "GOT_diff_with_upper": dec_res[2],
@@ -159,6 +170,6 @@ class Tool:
             "GOT_exceed": dec_res[6],
             "GPT_exceed": dec_res[7],
         }
-        return res
+        return (_enc_res, _dec_res)
 
 handler = Tool()
