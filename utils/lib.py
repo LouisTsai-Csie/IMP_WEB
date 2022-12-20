@@ -2,7 +2,7 @@ from phe import paillier
 import shamirs
 
 from utils import config
-from utils import database
+# from utils import database
 
 class Tool:
     def __init__(self, secret_number_list=[], encrypted_number_list=[], decrypted_number_list=[], share_list=[], header_list=[]):
@@ -11,7 +11,7 @@ class Tool:
         self.decrypted_number_list = decrypted_number_list
         self.share_list = share_list
         self.header_list = header_list
-        self.database = database.DatabaseService()
+        #self.database = database.DatabaseService()
 
         key = self.getKey()
 
@@ -63,14 +63,14 @@ class Tool:
         self._header_list = val
         return
 
-    @property
-    def database(self):
-        return self._database
+    # @property
+    # def database(self):
+        # return self._database
 
-    @database.setter
-    def database(self, val):
-        self._database = database.DatabaseService()
-        return
+    # @database.setter
+    # def database(self, val):
+        # self._database = database.DatabaseService()
+        # return
         
     def getKey(self):
         public_key, private_key = paillier.generate_paillier_keypair()
@@ -107,7 +107,7 @@ class Tool:
             for j in range(len(self.share_list)):
                 data_pack[str(self.header_list[j])] = self.share_list[j]
             
-            database._write(data_pack, i)
+            # database._write(data_pack, i)
         return
     
     def uploadData(self, data_pack):
@@ -120,5 +120,5 @@ class Tool:
         self.splitData()
         self.storeSplitData(data[0])
 
-        self.database._peek_all()
+        # self.database._peek_all()
         return
