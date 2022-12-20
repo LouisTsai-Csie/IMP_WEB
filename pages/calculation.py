@@ -41,7 +41,11 @@ def calculation():
 
         st.success("Calculation Success")
 
-        enc, dec = lib.handler.cal()
+        item = lib.handler.cal()
+
+        enc = item[0]
+
+        dec = item[1]
 
         st.subheader("Result calculated from the institution")
         for key, val in enc.items():
