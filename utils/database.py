@@ -24,11 +24,11 @@ class RESTService(object):
 class DatabaseService:
     def __init__(self):
         self._data_queue = []
-        server_thread   = threading.Thread(target=self._server_job)
-        database_thread = threading.Thread(target=self._database_job)
+        # server_thread   = threading.Thread(target=self._server_job)
+        # database_thread = threading.Thread(target=self._database_job)
 
-        server_thread.start()
-        database_thread.start()
+        # server_thread.start()
+        # database_thread.start()
 
     def _server_job(self):
         cherrypy.config.update({'server.socket_port':8081})
