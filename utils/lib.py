@@ -118,7 +118,7 @@ class Tool:
 
         self.encrytedData()
         self.splitData()
-        self.storeSplitData(data[0])
+        #self.storeSplitData(data[0])
 
         # self.database._peek_all()
         return
